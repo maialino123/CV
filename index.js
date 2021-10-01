@@ -1,18 +1,27 @@
 $(document).on("click","#download", function(){
-    var pdf = new jsPDF("a","mm","a2");
-    var firstPage;
+    // $(this).html("");
+    // html2canvas($("#first-page"),{
+    //     onrendered: function(canvas) {
+    //         firstPage = canvas.toDataURL("image/jpeg", 10);
+    //     }
+    // });
 
-    $(this).html("");
-    html2canvas($("#first-page"),{
-        onrendered: function(canvas) {
-            firstPage = canvas.toDataURL("image/jpeg", 10);
-        }
-    });
+    // setTimeout(function() {
+    //     pdf.addImage(firstPage, "JPEG", 5 , 5, 190 , 500);
+    //     pdf.save("CV.pdf");
+    // },150);
 
-    setTimeout(function() {
-        pdf.addImage(firstPage, "JPEG", 5 , 5, 400 , 500);
-        pdf.save("CV.pdf");
-    },150);
+    var CvHtml = document.getElementById("first-page");
+
+    var opt = {
+        margin: 1,
+        filename: 'CV-NguyenBaTu.pdf',
+        image: {type: 'jpeg', quality: 0.98},
+        html2canvas: {scale: 1},
+        jsPDF: {unit: 'in', format: 'letter', orientation: 'portrait'}
+    };
+
+    html2pdf(CvHtml, opt);
 
 
 });
