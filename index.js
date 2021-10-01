@@ -18,7 +18,7 @@ $(document).on("click","#download", function(){
         filename: 'CV-NguyenBaTu.pdf',
         image: {type: 'jpeg', quality: 0.98},
         html2canvas: {scale: 1},
-        jsPDF: {unit: 'in', format: 'letter', orientation: 'portrait'}
+        jsPDF: {unit: 'in', format: 'a3', orientation: 'portrait'}
     };
 
     html2pdf(CvHtml, opt);
